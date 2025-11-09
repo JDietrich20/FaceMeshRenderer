@@ -19,4 +19,5 @@ To run the code, follow these steps:
     - Right Arrow: Rotate right
     - W: Zoom in
     - S: Zoom out
+    - Space: Toggle wireframe/point mode
     - esc: Exit the program
