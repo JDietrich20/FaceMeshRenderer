@@ -1,3 +1,5 @@
+// Juliana Dietrich HW2
+
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <fstream>
@@ -108,7 +110,7 @@ int main()
 {
     if (!glfwInit())
         return -1;
-    GLFWwindow *window = glfwCreateWindow(windowWidth, windowHeight, "3D Wireframe Viewer", NULL, NULL);
+    GLFWwindow *window = glfwCreateWindow(windowWidth, windowHeight, "Homework 2: Question 3", NULL, NULL);
     if (!window)
     {
         cout << "Failed to create GLFW window" << std::endl;
@@ -150,12 +152,14 @@ int main()
             v2 = rotateY(rotateX(v2, rotationX), rotationY);
 
             float x0, y0, x1, y1, x2, y2;
+            // Project the 3D vertices to 2D screen coordinates
             perspectiveProj(v0, x0, y0, 3.14159f / 4.0f, cameraDist);
             perspectiveProj(v1, x1, y1, 3.14159f / 4.0f, cameraDist);
             perspectiveProj(v2, x2, y2, 3.14159f / 4.0f, cameraDist);
 
             if (showWireframe)
             {
+                // Draw edges
                 glVertex2f(x0 / (windowWidth / 2) - 1, 1 - y0 / (windowHeight / 2));
                 glVertex2f(x1 / (windowWidth / 2) - 1, 1 - y1 / (windowHeight / 2));
                 glVertex2f(x1 / (windowWidth / 2) - 1, 1 - y1 / (windowHeight / 2));
@@ -165,6 +169,7 @@ int main()
             }
             else
             {
+                // Draw points
                 glVertex2f(x0 / (windowWidth / 2) - 1, 1 - y0 / (windowHeight / 2));
                 glVertex2f(x1 / (windowWidth / 2) - 1, 1 - y1 / (windowHeight / 2));
                 glVertex2f(x2 / (windowWidth / 2) - 1, 1 - y2 / (windowHeight / 2));
